@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+  <meta charset="UTF-8">
+  <title>Register Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+      <style>
+      html,body {
+        margin: 0;
+        padding: 0;
+      }
+    .container {
+        margin: 0;
+        padding: 0;
+        max-width: 800px;
+        width: 90%;
+        margin: 0 auto;
+    }
+    .logo {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        font-size: 2em;
+        text-align: center;
+    }
+    .logo p {
+        color: grey;
+    }
+    .logo span {
+        color: #0A2FB6;
+    }
+    form {
+        font-family: 'Roboto', sans-serif;
+        text-align: center;
+    }
+    form input {
+        padding: 1em;
+        border-radius: 5px;
+        font-size: 1em;
+        border: 1px solid #0A2FB6;
+        width: 80%;
+        margin-bottom: 1em;
+    }
+    form input:focus {
+        border-bottom: 2px solid black;
+    }
+    form button {
+        padding: 1em;
+        border-radius: 5px;
+        border: 1px solid #0A2FB6;
+        background-color: #0A2FB6;
+        color: white;
+        width: 85%;
+        font-size: 1em;
+        margin-top: 1em;
+    }
+    .error > p {
+        font-size: 1em;
+    }
+    .register {
+      text-align:center;
+      color:red;
+      font-size:20px;
+      font-family: 'Roboto', sans-serif;
+    }
+    </style>
+</head>
+<body>
+<div class="container">
+  <div class="logo">
+    <h2><p>Math<span>Masters</span></h2></p>
+  </div>
+  <form th:action="@{/public/register-post}" method="post">
+    <h2>Zarejestruj się</h2>
+    <div class="mail">
+      <label for="username"></label>
+      <input type="text" id="username" name="mail" placeholder="Mail" required/>
+    </div>
+    <div class="firstName">
+      <label for="firstName"></label>
+      <input type="text" id="firstName" name="firstName" placeholder="Imie" required/>
+    </div>
+    <div class="lastName">
+      <label for="lastName"></label>
+      <input type="text" id="lastName" name="lastName" placeholder="Nazwisko" required/>
+    </div>
+    <div class="password">
+      <label for="password"></label>
+      <input type="password" id="password" name="password" placeholder="Hasło" required/>
+    </div>
+    <div class="registerButton">
+      <button type="submit">Zarejestruj</button>
+    </div>
+  </form>
+  <div th:if="${mailDuplicate}" class="register">
+    <p>Konto o padanym mailu już istnieje!</p>
+  </div>
+</div>
+</body>
+</html>

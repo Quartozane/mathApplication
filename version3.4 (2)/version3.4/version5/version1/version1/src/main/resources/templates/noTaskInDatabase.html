@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Coming soon!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+        html, body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            height: 100%;
+            overflow-x: hidden;
+        }
+        .default-color {
+            background-color: rgba(0, 42, 182, 0.6);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .second-container {
+            background-color: white;
+            width: 100%;
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .second-container > h1 {
+            color: #0A2FB6;
+            font-size: 55px;
+            padding: 20px;
+            text-align: center;
+            margin: 0;
+        }
+
+        .topnav {
+          overflow: hidden;
+          background-color: #0A2FB6;
+          position: relative;
+          padding:25px;
+        }
+
+        .topnav #myLinks {
+          display: none;
+        }
+
+        .topnav a {
+          color: white;
+          padding: 14px 16px;
+          text-decoration: none;
+          font-size: 30px;
+          display: block;
+        }
+
+        .topnav a.icon {
+          display: block;
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+
+        .logo {
+          background-color: #0A2FB6;
+          color: white;
+          padding:20px;
+          margin-left:70px;
+        }
+        .icon {
+            margin: 0;
+            position: absolute;
+            bottom: 50%;
+            transform: translateY(35%);
+        }
+        .table {
+            color:white;
+            margin-left:70px;
+        }
+        .table tr th {
+            text-align:left;
+            font-size:18px;
+            padding:10px;
+        }
+        .table tr td {
+            vertical-align: top;
+            padding:10px;
+            font-size:16px;
+        }
+        .table > tr > td > div > a:hover {
+            border-bottom:1px solid white;
+        }
+        .of-us {
+            text-align: left;
+            display: flex;
+            align-items: center;
+            width:90%
+        }
+        .of-us > img {
+            width:600px;
+            height:400px;
+            float:left;
+            margin-left:20%;
+            transition: all 0.5s ease-in-out;
+        }
+        .of-us > p {
+            color: #0A2FB6;
+            font-width:10px;
+            font-size:25px;
+        }
+        .third-container {
+            width:100%;
+            background-color:#0A2FB6;
+        }
+        .third-container h2 {
+            text-align:center;
+            color:white;
+            font-size:55px;
+            padding:55px;
+        }
+        #icon-member {
+            color:white;
+            font-size:150px;
+        }
+        #icon-burger {
+            color:white;
+            font-size:150px;
+        }
+        #icon-note {
+            color:white;
+            font-size:150px;
+        }
+        .third-container table {
+            margin-right:auto;
+            margin-left:auto;
+        }
+        .table-icons {
+            width: 100%;
+            text-align: center;
+            border-collapse: collapse;
+        }
+        .table-icons th,
+        .table-icons td {
+            width: 33.33%;
+            padding: 20px;
+            vertical-align: middle;
+        }
+        .start-text {
+            color: white;
+            font-size: 25px;
+        }
+        .fourth-container h2 {
+            text-align:center;
+            color:#0A2FB6;
+            font-size:55px;
+            padding:55px;
+        }
+        form input {
+            vertical-align: middle;
+            padding: 2%;
+            border-radius: 5px;
+            font-size: 15px;
+            border: 1px solid #0A2FB6;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        select.select-type-message {
+            vertical-align: middle;
+            padding: 2%;
+            border-radius: 5px;
+            font-size: 15px;
+            border: 1px solid #0A2FB6;
+            width: 100%;
+            margin-bottom: 10px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        textarea.message-value {
+            vertical-align: middle;
+            padding: 2%;
+            border-radius: 5px;
+            font-size: 15px;
+            border: 1px solid #0A2FB6;
+            width: 100%;
+            height: 200px;
+            margin-bottom: 10px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        form button {
+            padding: 2%;
+            border-radius: 5px;
+            border: 1px solid #0A2FB6;
+            width: 100%;
+            background-color: #0A2FB6;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .fourth-container {
+            padding: 0;
+        }
+
+        .form-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 0 auto;
+            text-align: center;
+            width:60%;
+        }
+
+        .form-container input,
+        .form-container select,
+        .form-container textarea {
+            margin-top: 15px;
+            background-color:#0A2FB6;
+            color:white;
+            font-size:20px;
+        }
+        ::placeholder {
+            color:white;
+        }
+        .name {
+            float:left;
+        }
+        .icons-nav {
+            margin: 0;
+            position: absolute;
+            bottom: 50%;
+            transform: translateY(20%);
+            float:left;
+            margin-left:93%;
+            font-size:35px;
+            color:white;
+        }
+        .icons-nav-teacher {
+            margin: 0;
+            position: absolute;
+            bottom: 50%;
+            transform: translateY(20%);
+            float:left;
+            margin-left:90%;
+            font-size:35px;
+            color:white;
+        }
+        .footer {
+            background-color: #0A2FB6;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer a {
+            font-size: 30px;
+            color: white;
+            padding-right:80px;
+            padding-left:80px;
+        }
+
+        .footer a i {
+            margin-right: auto;
+            margin-left: auto;
+        }
+        a {
+            padding:0;
+            margin:0;
+        }
+        .icon {
+            padding:0;
+            color:white;
+        }
+        .table tr td a {
+            vertical-align: top;
+            padding: 10px;
+            font-size: 16px;
+            text-decoration: none;
+            color: white;
+        }
+        .table tr td a {
+            vertical-align: top;
+            padding: 10px;
+            font-size: 16px;
+            text-decoration: none;
+            color: white;
+        }
+
+        .table tr td a:hover {
+            border-bottom: 1px solid white;
+        }
+    </style>
+</head>
+<body>
+<script>
+        if (window.innerWidth <= 800) {
+            window.location.href = '/public/department-select-mobile';
+        }
+        if (window.innerWidth <= 1800) {
+            window.location.href = '/public/department-select-small';
+        }
+    </script>
+<div class="topnav" id="myTopnav">
+  <a href="#home" class="logo">MathMasters</a>
+  <div id="myLinks">
+    <table class="table">
+      <tr>
+        <th>Szkoła podstawowa</th>
+        <th>Szkoła ponadpodstawowa</th>
+        <th>Zadania maturalne</th>
+      </tr>
+      <tr>
+        <td>
+          <div th:each="department : ${departmentsByLevel['Szkoła podstawowa']}">
+            <a th:href="@{'/public/' + ${department.nameOfDepartment}}" th:text="${department.nameOfDepartment}"></a>
+          </div>
+        </td>
+        <td>
+          <div th:each="department : ${departmentsByLevel['Szkoła ponadpodstawowa']}">
+            <a th:href="@{'/public/' + ${department.nameOfDepartment}}" th:text="${department.nameOfDepartment}"></a>
+          </div>
+        </td>
+        <td>
+          <div th:each="department : ${departmentsByLevel['Zadania maturalne']}">
+            <a th:href="@{'/public/' + ${department.nameOfDepartment}}" th:text="${department.nameOfDepartment}"></a>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <a th:href="@{user-page}"><i class="fas fa-user icons-nav" id="icon-member-nav"></i></a>
+  <a href="@{user-rank-page}"><i class="fas fa-chalkboard-teacher icons-nav-teacher" id="icon-note-nav"></i></a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fas fa-bars icons"></i>
+  </a>
+</div>
+<div class="second-container">
+  <h1>Zadania dostępne wkrótce!</h1>
+</div>
+
+<footer>
+  <div class="footer">
+    <a href="https://www.facebook.com/twojaprofil" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://twitter.com/twojprofil" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="https://www.instagram.com/twojprofil" target="_blank"><i class="fab fa-instagram"></i></a>
+  </div>
+</footer>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var topnav = document.getElementById("myTopnav");
+  topnav.style.height = "7vh";
+
+  function myFunction() {
+    var x = document.getElementById("myLinks");
+    var y = document.getElementById("icon-member-nav");
+    var z = document.getElementById("icon-note-nav");
+
+    if (x.style.display === "block" || x.style.display === "") {
+      x.style.display = "none";
+      y.style.display="block";
+      z.style.display="block";
+      topnav.style.height = "7vh";
+    } else {
+      x.style.display = "block";
+      y.style.display="none";
+      z.style.display="none";
+      topnav.style.height = "auto";
+    }
+  }
+
+  var icon = document.querySelector('.icon');
+  icon.addEventListener('click', myFunction);
+  myFunction();
+});
+</script>
+</body>
+</html>

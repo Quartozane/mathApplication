@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Pierwiastki</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        html, body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            height: 100%;
+        }
+
+        .first-container {
+            background: url([[@{/public/images/mainPageWallpaper.png}]]);
+            background-size: cover;
+            background-position: center center;
+            height: calc(100vh - 12vh);
+            z-index: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .default-color {
+            background-color: rgba(0, 42, 182, 0.6);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        h1 {
+            margin: 0;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            color: white;
+            z-index: 1;
+            opacity: 1;
+            position: relative;
+            font-size: 45px;
+        }
+
+         .second-container {
+            background-color: white;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+         }
+
+        .second-container > h2 {
+            color: #0A2FB6;
+            text-align: center;
+            font-size: 55px;
+            padding: 20px;
+        }
+
+        .topnav {
+          overflow: hidden;
+          background-color: #0A2FB6;
+          position: relative;
+          padding:25px;
+        }
+
+        .topnav #myLinks {
+          display: none;
+        }
+
+        .topnav a {
+          color: white;
+          padding: 14px 16px;
+          text-decoration: none;
+          font-size: 30px;
+          display: block;
+        }
+
+        .topnav a.icon {
+          display: block;
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+
+        .logo {
+          background-color: #0A2FB6;
+          color: white;
+          padding:20px;
+          margin-left:70px;
+        }
+        .icon {
+            margin: 0;
+            position: absolute;
+            bottom: 44%;
+            transform: translateY(35%);
+        }
+        .table {
+            color:white;
+            margin-left:70px;
+        }
+        .table tr th {
+            text-align:left;
+            font-size:18px;
+            padding:10px;
+        }
+        .table tr td {
+            vertical-align: top;
+            padding:10px;
+            font-size:16px;
+        }
+        .table > tr > td > div > a:hover {
+            border-bottom:1px solid white;
+        }
+         .of-us {
+            text-align: left;
+            width: 80%;
+            margin: 0 auto;
+          }
+
+          .of-us > p {
+            color: #0A2FB6;
+            font-size: 25px;
+            width: 100%;
+            margin: 0 auto;
+          }
+        .third-container {
+            background-color:#0A2FB6;
+            color:white;
+            margin:0;
+            padding:70px;
+        }
+        .third-container h2 {
+            text-align:center;
+            color:white;
+            font-size:55px;
+            padding:55px;
+        }
+        .third-container p {
+          margin:0;
+          font-size:20px;
+          padding:15px;
+        }
+        .third-container > ul {
+            list-style-type:none;
+         }
+         .third-container > ul > li {
+            font-size:20px;
+         }
+         .third-container > form > input {
+            background-color:white;
+            color:#0A2FB6;
+            border-radius:7px;
+            padding:15px;
+            font-size:20px;
+            border:1px solid #0A2FB6;
+         }
+         .third-container > form > button {
+            background-color:white;
+            color:#0A2FB6;
+            border-radius:7px;
+            padding:15px;
+            font-size:20px;
+            border:1px solid #0A2FB6;
+         }
+        #icon-member {
+            color:white;
+            font-size:150px;
+        }
+        #icon-burger {
+            color:white;
+            font-size:150px;
+        }
+        #icon-note {
+            color:white;
+            font-size:150px;
+        }
+        .icons-nav {
+            margin: 0;
+            position: absolute;
+            bottom: 50%;
+            transform: translateY(20%);
+            float:left;
+            margin-left:93%;
+            font-size:35px;
+            color:white;
+        }
+        .icons-nav-teacher {
+            margin: 0;
+            position: absolute;
+            bottom: 50%;
+            transform: translateY(20%);
+            float:left;
+            margin-left:90%;
+            font-size:35px;
+            color:white;
+        }
+        .footer {
+            background-color: white;
+            color: #0A2FB6;
+            padding: 20px;
+            text-align: center;
+            border-top:1px solid #0A2FB6;
+        }
+
+        .footer a {
+            font-size: 30px;
+            color: #0A2FB6;
+            padding-right:80px;
+            padding-left:80px;
+        }
+
+        .footer a i {
+            margin-right: auto;
+            margin-left: auto;
+        }
+        #typewriter-text {
+            padding:30px;
+        }
+        .table tr td a {
+            vertical-align: top;
+            padding: 10px;
+            font-size: 16px;
+            text-decoration: none;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+<script>
+        if (window.innerWidth <= 800) {
+            window.location.href = '/public/Pierwiastki-mobile';
+        }
+        if (window.innerWidth <= 1800) {
+            window.location.href = '/public/Pierwiastki-small';
+        }
+    </script>
+<div class="topnav" id="myTopnav">
+    <a href="#home" class="logo">MathMasters</a>
+    <div id="myLinks">
+        <table class="table">
+            <tr>
+                <th>Szkoła podstawowa</th>
+                <th>Szkoła ponadpodstawowa</th>
+                <th>Zadania maturalne</th>
+            </tr>
+            <tr>
+                <td>
+                    <div th:each="department : ${departmentsByLevel['Szkoła podstawowa']}">
+                        <a th:href="@{'/public/' + ${department.nameOfDepartment}}" th:text="${department.nameOfDepartment}"></a>
+                    </div>
+                </td>
+                <td>
+                    <div th:each="department : ${departmentsByLevel['Szkoła ponadpodstawowa']}">
+                        <a th:href="@{'/public/' + ${department.nameOfDepartment}}" th:text="${department.nameOfDepartment}"></a>
+                    </div>
+                </td>
+                <td>
+                    <div th:each="department : ${departmentsByLevel['Zadania maturalne']}">
+                        <a th:href="@{'/public/' + ${department.nameOfDepartment}}" th:text="${department.nameOfDepartment}"></a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <a th:href="@{user-page}"><i class="fas fa-user icons-nav" id="icon-member-nav"></i></a>
+    <a th:href="@{user-rank-page}"><i class="fas fa-chalkboard-teacher icons-nav-teacher" id="icon-note-nav"></i></a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fas fa-bars icons"></i>
+    </a>
+</div>
+<div class="first-container">
+    <div class="default-color"></div>
+    <div class="first-container-text">
+        <h1 id="typewriter-text"></h1>
+    </div>
+    <script>
+    const text = "Czym są pierwiastki? Jest to nic innego jak obliczenie jaka liczba pomnożona przez samą siebie odpowiednią ilość razy da nam liczbę pod pierwiastkiem. Wydaje się proste? Aby dowiedzieć się więcej przejdź niżej";
+    const speed = 50;
+
+    const typewriterText = document.getElementById("typewriter-text");
+
+    let charIndex = 0;
+
+    function typeWriter() {
+        if (charIndex < text.length) {
+            typewriterText.textContent += text.charAt(charIndex);
+            charIndex++;
+            setTimeout(typeWriter, speed);
+        }
+    }
+
+    window.addEventListener("load", () => {
+        typeWriter();
+    });
+  </script>
+</div>
+<div class="second-container">
+    <h2>Pierwiastki</h2>
+    <div class="of-us">
+        <p>
+            Pierwiastki to matematyczne operacje, które pozwalają nam znaleźć liczbę, którą podnosząc do potęgi daną liczbę, otrzymamy wynik równy tej liczbie. Wyjaśnijmy to w prosty sposób:
+            <br>
+            <br>
+            Załóżmy, że mamy liczbę "x" i chcemy znaleźć pierwiastek z tej liczby. Symbol pierwiastka to √. Oznacza to, że szukamy liczby, którą podnosząc do potęgi 2 (pierwiastek kwadratowy), otrzymamy naszą pierwotną liczbę "x".
+            <br>
+            <br>
+            <strong>Pierwiastek kwadratowy:</strong> Jeśli mamy liczbę "x" i chcemy znaleźć pierwiastek kwadratowy, oznacza to, że szukamy liczby "y" takiej, że y<sup>2</sup> = x. Symbolicznie jest to oznaczane jako √x. Na przykład, √4 = 2, ponieważ 2<sup>2</sup> = 4.
+            <br>
+            <br>
+            <strong>Pierwiastek trzeciego stopnia:</strong> Podobnie, pierwiastek trzeciego stopnia oznacza szukanie liczby "y" takiej, że y<sup>3</sup> = x. Symbolicznie jest to oznaczane jako ∛x.
+            <br>
+            <br>
+            Ogólnie mówiąc, pierwiastek n-tego stopnia z liczby "x" oznacza szukanie liczby "y" takiej, że y<sup>n</sup> = x.
+            <br>
+            <br>
+            <strong>Przykłady:</strong>
+            <br>
+            √9 oznacza liczbę, którą podnosząc do kwadratu, otrzymamy 9. Wynikiem jest 3, ponieważ 3<sup>2</sup> = 9.
+            <br>
+            ∛27 oznacza liczbę, którą podnosząc do sześcianu, otrzymamy 27. Wynikiem jest 3, ponieważ 3<sup>3</sup> = 27.
+            <br>
+            <br>
+            Pierwiastki są szeroko stosowane w matematyce i naukach przyrodniczych.
+        </p>
+    </div>
+</div>
+<div class="third-container">
+    <h2>Sprawdź co umiesz!</h2>
+
+    <p>Dział: <span th:text="${task != null and task.departmentName != null} ? ${task.departmentName} : 'Brak' "></span></p>
+    <p>Treść: <span th:text="${task != null and task.stuff != null} ? ${task.stuff} : 'Brak' "></span></p>
+    <p>Poziom: <span th:text="${task != null and task.level != null} ? ${task.level} : 'Brak' "></span></p>
+    <p>Odpowiedzi:</p>
+
+    <ul th:if="${answers != null and !answers.isEmpty()}">
+        <li th:each="answer : ${answers}">
+            <span th:text="${answer.indexAnswers}"></span>
+            <span th:text="${answer.stuff}"></span>
+        </li>
+    </ul>
+
+    <form th:action="@{/public/Pierwiastki}" method="post">
+        <input type="text" name="answer" id="answer" placeholder="Twoja odpowiedź">
+        <button type="submit">Sprawdź odpowiedź</button>
+    </form>
+
+    <p th:if="${resultAttribute == 'Correct'}">Twoja odpowiedź jest poprawna!</p>
+    <p th:if="${resultAttribute == 'Incorrect'}">Twoja odpowiedź jest niepoprawna.</p>
+    <p th:if="${resultAttribute == 'AllTaskCompleted'}">Wszystkie zadania zostały ukończone!</p>
+    <div th:if="${hint != null}">
+        <p>Podpowiedź:</p>
+        <p th:if="${hint.stuff != null}" th:text="${hint.stuff}"></p>
+    </div>
+</div>
+</div>
+<footer>
+    <div class="footer">
+        <a href="https://www.facebook.com/twojaprofil" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://twitter.com/twojprofil" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/twojprofil" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+</footer>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var topnav = document.getElementById("myTopnav");
+  topnav.style.height = "7vh";
+
+  function myFunction() {
+    var x = document.getElementById("myLinks");
+    var y = document.getElementById("icon-member-nav");
+    var z = document.getElementById("icon-note-nav");
+
+    if (x.style.display === "block" || x.style.display === "") {
+      x.style.display = "none";
+      y.style.display="block";
+      z.style.display="block";
+      topnav.style.height = "7vh";
+    } else {
+      x.style.display = "block";
+      y.style.display="none";
+      z.style.display="none";
+      topnav.style.height = "auto";
+    }
+  }
+
+  var icon = document.querySelector('.icon');
+  icon.addEventListener('click', myFunction);
+  myFunction();
+});
+</script>
+</body>
+</html>
